@@ -1,5 +1,5 @@
 # wechat_demo
-
+模仿微信界面使用 flutter 搭建的 demo
 A new Flutter application.
 
 ## Getting Started
