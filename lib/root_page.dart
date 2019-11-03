@@ -10,14 +10,18 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
-  List<Widget> pages = [
-    ChatPage(),
-    FriendsPage(),
-    DiscoverPages(),
-    MinePage(),
-  ];
+  final PageController _controller = PageController(
+    initialPage: 0,
+  );
 
-  int currentCount = 3;
+//  List<Widget> pages = [
+//    ChatPage(),
+//    FriendsPage(),
+//    DiscoverPages(),
+//    MinePage(),
+//  ];
+
+  int currentCount = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +32,7 @@ class _RootPageState extends State<RootPage> {
           onTap: (int index) {
             currentCount = index;
             setState(() {});
+            _controller.jumpToPage(index);
           },
           type: BottomNavigationBarType.fixed,
           fixedColor: Colors.green,
@@ -84,7 +89,20 @@ class _RootPageState extends State<RootPage> {
                 title: Text('我')),
           ],
         ),
-        body: pages[currentCount],
+        body: PageView(
+//          onPageChanged: (int index) {
+//            currentCount = index;
+//            setState(() {});
+//          },
+        physics: NeverScrollableScrollPhysics(),
+          controller: _controller,
+          children: <Widget>[
+            ChatPage(),
+            FriendsPage(),
+            DiscoverPages(),
+            MinePage(),
+          ],
+        ),
       ),
     );
   }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:wechat_demo/const.dart';
 import 'package:wechat_demo/discover/discover_cell.dart';
 import 'package:wechat_demo/discover/discover_data.dart';
+import 'package:flutter/src/services/asset_bundle.dart';
 
 class DiscoverPages extends StatefulWidget {
   @override
@@ -8,7 +10,7 @@ class DiscoverPages extends StatefulWidget {
 }
 
 class _DiscoverPagesState extends State<DiscoverPages> {
-  Color _themColor = Color.fromRGBO(231, 231, 231, 1.0);
+  Color _themColor = themColor;
 
   Widget _cellForRow(BuildContext context, int row) {
     return Container(
